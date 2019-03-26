@@ -4,12 +4,25 @@
         <link href="/styles/styles.css" rel="stylesheet"> 
     </head>
     <body>
-        <a href="/index.html">Home</a>
-        <input id="note-title" placeholder="note-title">
-        <span id="last-edited"></span>
-        <textarea id="note-body" placehodler="Enter Note Text"></textarea>
-        <button id="remove-note">Delete Note</button>
-        
+        <header class="header">
+            <div class="container">
+                <h1 class="header__title">Notes App</h1>
+                <h2 class="header__subtitle">Don't Forget A Thing</h2>
+            </div>
+        </header>
+        <div class="actions">
+            <div class="actions__container actions__container--spaced">
+                <a href="/index.html">Home</a>
+                <span id="last-edited"></span>
+            </div>
+        </div>
+
+        <div class="container">
+            <input id="note-title" class="title-input" placeholder="note-title">
+            <textarea id="note-body" class="body-input" placehodler="Enter Note Text"></textarea>
+            <button id="remove-note" class="button button--secondary">Delete Note</button>
+        </div>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment-with-locales.min.js"></script>
         <script src="/scripts/uuidv4.js"></script>
         <script src="/scripts/notes-functions.js"></script>

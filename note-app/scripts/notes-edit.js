@@ -15,7 +15,7 @@ if (!note){
 
 titleEl.value = note.title
 bodyEl.value = note.body
-dateEl.textContent = generateLastEdited(note.updatedAt) 
+dateEl.textContent = generateLastEdited(note.updatedAt)  
 
 titleEl.addEventListener('input', (e) =>{
     note.title = e.target.value

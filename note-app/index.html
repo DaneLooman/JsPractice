@@ -2,19 +2,31 @@
 
 <html>
     <head> 
-        <link href="/styles/styles.css" rel="stylesheet">      
+        <title>Dane's Notes App</title>     
+        <link href="/styles/styles.css" rel="stylesheet"> 
     </head>
     <body>
-        <h1>Notes App</h1>
-        <h2>Header 2 info</h2>
-        <input type="text" id="filter1" placeholder="filter notes">
-        <select id="filter-by">
-            <option value="edited">Last Edited</option>
-            <option value="created">Recently Created</option>
-            <option value="abc">Alphabetically</option>
-        </select>
-        <div id="notes"></div>
-        <button id="create-note">Create a new note</button>
+        <header class="header">
+            <div class="container">
+                    <h1 class="header__title">Notes App</h1>
+                    <h2 class="header__subtitle">Don't Forget A Thing</h2>
+            </div>
+        </header>
+        <div class="actions">
+            <div class="actions__container">
+                <input type="text" id="filter1" class="input" placeholder="filter notes">
+                <select id="filter-by" class="dropdown">
+                    <option value="edited">Last Edited</option>
+                    <option value="created">Recently Created</option>
+                    <option value="abc">Alphabetically</option>
+                </select>
+            </div>
+        </div>
+        <div class="container">
+            <div id="notes"></div>
+            <button id="create-note" class="button">Create a new note</button>
+        </div>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment-with-locales.min.js"></script>
         <script src="/scripts/uuidv4.js"></script>
         <script src="/scripts/notes-functions.js"></script>
