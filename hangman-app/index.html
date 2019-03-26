@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 
 <html>
-    <head></head>
+    <head>
+        <title>Dane's Hangman Game</title>
+        <link href="/styles/styles.css" rel="stylesheet">
+    </head>
 
     <body>
-        <p id="puzzle"></p>
-        <p id="guesses"></p>
-        <button id="reset">New Game</button>
+        <div>
+            <div class="puzzle" id="puzzle"></div>
+            <p id="guesses"></p>
+            <button id="reset" class="button">Reset</button>
+        </div>
+
         <script src="/scripts/requests.js"></script>
         <script  src="/scripts/hangman.js"></script>
         <script src="/scripts/app.js"></script>
