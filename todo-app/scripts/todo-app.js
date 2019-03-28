@@ -15,15 +15,20 @@ document.querySelector('#todoFilter').addEventListener('input', (e) => {
 })
 
 document.querySelector('#create').addEventListener('submit', (e) =>{
+    const text = e.target.elements.newNote.value.trim()
+
     e.preventDefault()
-    todos.push({
-        id: uuidv4(),
-        text:e.target.elements.newNote.value,
-        completed:false
+    
+    if (text.length > 0){
+        todos.push({
+            id: uuidv4(),
+            text,
+            completed:false
         })
-    saveTodos(todos)
-    renderTodos(todos,filter)
-    e.target.elements.newNote.value = ''
+        saveTodos(todos)
+        renderTodos(todos,filter)
+        e.target.elements.newNote.value = ''
+    }
 })
 
 document.querySelector('#hide-done').addEventListener('change',(e) =>{

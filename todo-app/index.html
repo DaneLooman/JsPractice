@@ -1,25 +1,39 @@
 <!DOCTYPE html>
 
 <html>
-    <head>       
+    <head> 
+        <title>Dane's Todo App</title> 
+        <link href="/styles/styles.css" rel="stylesheet">     
     </head>
     <body>
-        <h1>TO-DO Application</h1>
-        <input type="text" id="todoFilter" placeholder="Filter Notes"> 
-        <div id='total'></div>       
-        <div id="todos"> </div>
-        <br>
-        <label>
-            <input type="checkbox" id="hide-done">
-            Click to Hide Completed Tasks
-        </label>
+        <div class="header">
+            <div class="container">
+                    <h1 class="header__title">To-do Application</h1>
+                    <h1 class="header__subtitle">Never Forget Again</h1>
+            </div>
+        </div>
+
+        <div class="actions">
+            <div class="actions__container">
+                    <input type="text" id="todoFilter" class="input" placeholder="Filter Notes">
+                    <label class="checkbox"> 
+                            <input type="checkbox" id="hide-done">
+                            Click to Hide Completed Tasks
+                    </label> 
+            </div>
+        </div>
+
+        <div class="container">
+            <div id='total'></div>       
+            <div id="todos"> </div>     
+            <form id="create">
+                <input type="text" class="input" name="newNote" placeholder="Enter new note here">
+                <button class="button">Add To-Do</button>
+            </form>
+        </div>
         
-        <form id="create">
-            <input type="text" name="newNote" placeholder="Enter new note here">
-            <button>Add To-Do</button>
-        </form>
-        <script src="http://wzrd.in/standalone/uuid%2Fv4@latest"></script>
-        <script src="todo-functions.js"></script>
-        <script src="todo-app.js"></script>
+        <script src="/scripts/uuidv4.js"></script>
+        <script src="/scripts/todo-functions.js"></script>
+        <script src="/scripts/todo-app.js"></script>
     </body>
 </html>

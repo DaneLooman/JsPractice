@@ -46,32 +46,48 @@ const renderTodos =  (todos, filter) =>{
     document.querySelector('#total').innerHTML = ''
     document.querySelector('#total').appendChild(generateSummaryDOM(incompleteToDos)
     )
-
-    filteredTodos.forEach((todo) => {
-        document.querySelector('#todos').appendChild(generateTodoDom(todo))
+    if ( filteredTodos.length > 0){
+        filteredTodos.forEach((todo) => {
+            document.querySelector('#todos').appendChild(generateTodoDom(todo))
         })
+    } else {
+        const messageEl = document.createElement('p')
+        messageEl.classList.add('empty-message')
+        messageEl.textContent = 'No to-dos to show'
+        document.querySelector('#todos').appendChild(messageEl)
+    }   
 }
 
 // Get DOM elements for an individual note
 const generateTodoDom =  (todo) => {
-    const todoEl = document.createElement('div')
+    const todoEl = document.createElement('label')
+    const containerEl = document.createElement('div')
 
+    //checkbox setup
     const checkBox = document.createElement('input')
     checkBox.setAttribute('type', 'checkbox')
     checkBox.checked = todo.completed
-    todoEl.appendChild(checkBox)
+    containerEl.appendChild(checkBox)
     checkBox.addEventListener('change', function(){
         todoCompleted(todo.id)
         saveTodos(todos)
         renderTodos(todos,filter)
     })
 
+    //setup todo text
     const todoText = document.createElement('span')   
     todoText.textContent = todo.text
-    todoEl.appendChild(todoText)
+    containerEl.appendChild(todoText)
 
+    //setup container
+    todoEl.classList.add('list-item')
+    containerEl.classList.add('list-item__container')
+    todoEl.appendChild(containerEl)
+
+    //setup remove button
     const removeButton = document.createElement('button')
-    removeButton.textContent = 'x'
+    removeButton.textContent = 'remove'
+    removeButton.classList.add('button', 'button--text')
     todoEl.appendChild(removeButton)
     removeButton.addEventListener('click',() =>{
         removeTodo(todo.id)
@@ -85,6 +101,9 @@ const generateTodoDom =  (todo) => {
 // Get DOM elemets for list summary
 const generateSummaryDOM =  (incompleteToDos) => {
     const summary = document.createElement('h2')
-    summary.textContent = `You have ${incompleteToDos.length} To-Do's left`
+    const plural = incompleteToDos.length === 1 ? '' : 's'
+    summary.classList.add('list-title')
+    summary.textContent = `You have ${incompleteToDos.length} to-do${plural} left`
+    
     return summary
 }
